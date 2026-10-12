@@ -173,7 +173,7 @@ For a product measure with probabilities $q_i=\P(y_i=1)$ on $\{0,1\}^n$, write $
  \qquad
  \Delta_\mu(f)=\I_\mu(f)-\Var_\mu(f).
 \]
-The normalization and the treatment of deterministic inputs are given in Section~\ref{bias:normalization}. On the uniform cube, $\HH^+$ is the contribution of the nonempty Fourier coefficients to $\HH$.
+The normalization and the treatment of deterministic inputs are given in Section~\ref{bias:normalization}. On the uniform cube, $\HH^+$ is the contribution of the nonempty Fourier coefficients to $\HH$. We say that $f$ satisfies FEI+ with constant $C$ under $\mu$ if $\HH_\mu^+(f)\le C\Delta_\mu(f)$; on the uniform cube this reads $\HH^+(f)\le C(\I(f)-\Var(f))$.
 
 \begin{mainthm}\label{thm:formulas-intro}
 Every symmetric threshold satisfies
@@ -202,7 +202,7 @@ reductions specify the scope of the structured hypotheses.
 
 \subsection{Earlier work}
 
-O'Donnell, Wright and Zhou \cite{OWZ11} proved FEI for symmetric and fixed-part symmetric functions and for read-once decision trees. Their method relates derivative noise stability to spectral entropy; the spectral-level argument below refines their bound. Chakraborty, Kulkarni, Lokam and Saurabh \cite{CKLS16} proved, among other results, an $O(\sqrt n)$ entropy bound for linear threshold functions. The corrected version of their manuscript removes an earlier all-threshold claim. Chakraborty, Karmalkar, Kundu, Lokam and Saurabh \cite{CKKLS18} proved FEI with high probability for specified random models of linear threshold functions.
+O'Donnell, Wright and Zhou \cite{OWZ11} proved FEI for symmetric and fixed-part symmetric functions and for read-once decision trees. Their method relates derivative noise stability to spectral entropy; the spectral-level argument below refines their bound. Chakraborty, Kulkarni, Lokam and Saurabh \cite{CKLS16} proved, among other results, an $O(\sqrt n)$ entropy bound for linear threshold functions. The 2018 revision of their ECCC report removes an earlier claim of FEI for all linear threshold functions. Chakraborty, Karmalkar, Kundu, Lokam and Saurabh \cite{CKKLS18} proved FEI with high probability for specified random models of linear threshold functions.
 
 Shalev \cite{Shalev18} studied the read-$k$ DNF question and proved a min-entropy result for a restricted class of such formulas. Arunachalam, Chakraborty, Kouck\'y, Saurabh and de Wolf \cite{ACKSW21} established the min-entropy conjecture for read-$k$ DNF with fixed $k$. Theorem~\ref{thm:readk-intro} bounds the full Shannon entropy and applies more generally to unions and intersections of regular functions. Fourier concentration for small-read DNF was studied by Lecomte and Tan \cite{LT21}; Section~\ref{sec:consequences} records a direct concentration consequence of the entropy bound.
 
@@ -1566,11 +1566,7 @@ Let \(r_i=R(y_i=1)\), \(a_i=1-q_i+q_i e^\lambda\), so \(a_i\ge1\). The complemen
 \frac \I\alpha\ge\frac{2v}{\sqrt{1+3v}}.
 \end{equation}
 
-We now use the following classical theorem, with its hypotheses stated explicitly:
-
-\begin{quote}
-We use Darroch's integer-mean mode theorem \cite{Darroch64}; see also \cite[eq.~(13)]{Pitman97}. For a finite sum of independent Bernoulli variables with mean equal to an integer \(t\), the mass at \(t\) is maximal among its point probabilities.
-\end{quote}
+We use the following classical theorem of Darroch \cite{Darroch64} (see also \cite{Pitman97}): if a finite sum of independent Bernoulli variables has integer mean \(t\), then its mass at \(t\) is maximal among its point probabilities.
 
 If \(v\le1/2\), the integer support and Chebyshev give \(b_*\ge1-v\), hence \(\mathrm{TC}(\mu_A)\le-\ln(1-v)\le2v\ln2\). By \eqref{bias:eq-4-7}, \[
  \frac{\alpha\,\mathrm{TC}(\mu_A)}\I
@@ -1874,7 +1870,7 @@ By Theorem~\ref{thm:A}, every linear threshold function satisfies \(\HH(h)\le C_
 
 Then the complete function has \[
  \HH^+(F)\le C \Delta(F),
-\] where \(C\) is the maximum of the applicable constants, including \(C_L\) and \(C_T\). Thus \(\HH(F)\le C \I(F)\) provided \(C\ge\log_2e\), and \(\HH(F)\le(C+\kappa)\Delta(F)\).
+\] where \(C\) is the maximum of the applicable constants, including \(C_L\) and \(C_T\). Consequently \(\HH(F)\le C\I(F)\), since \(C\ge C_L>\log_2e\), and \(\HH(F)\le(C+\kappa)\Delta(F)\).
 
 \end{corollary}
 \begin{proof}
@@ -2353,7 +2349,7 @@ and balance it with a fresh sign:
 \]
 Then
 \[
- \HH(g_t)=tH(f),\quad \I(g_t)=tI(f)+1,
+ \HH(g_t)=t\HH(f),\quad \I(g_t)=t\I(f)+1,
 \quad \HH(M_{g_t})=2+\tfrac t2\HH(f),\quad
  \I(M_{g_t})=\tfrac32+\tfrac t2\I(f).
 \]
@@ -2492,6 +2488,8 @@ for every weighted linear threshold function and every product measure. Theorem~
 The antichain argument raises a second question. Can a spectral reference measure control the cost of many incomparable coordinate orders without a factor depending on their number? The width bound of Theorem~\ref{thm:width} and the overlap bound of Theorem~\ref{thm:readk-intro} provide two ways to limit that cost. The unrestricted FEI conjecture requires an argument without either restriction.
 
 \section*{Acknowledgements and funding}
+The final manuscript was audited by Claude Opus 5.5 (Anthropic), which checked the proofs, recomputed the numerical constants in exact rational and high-precision arithmetic, and reran the finite computations in the repository.
+
 The research presented in this paper was supported by the European Research
 Council (ERC) under the European Union's Horizon Europe research and
 innovation programme (grant agreement No.~101041711), by the Simons
@@ -2509,7 +2507,7 @@ in the funding declaration above.
 
 \begin{samepage}
 \section*{Declaration of generative AI and AI-assisted technologies}
-The paper comes out of Math Brain, an ongoing project on the use of AI systems for research mathematics. Earlier versions of the rank, bounded-overlap, and biased-threshold arguments were developed in September 2026 with Claude (Anthropic). In October 2026, OpenAI's GPT-6 Astra Pro, working in ChatGPT with collaborating agents, was used to extend the results, improve the constants, reconstruct and check the proofs, search the literature, carry out finite computations, and prepare the manuscript. Separate agents reviewed the rank, bounded-overlap, biased-threshold, joint-witness, selector, and rare-activation arguments. These checks are not peer review. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
+The paper comes out of Math Brain, an ongoing project on the use of AI systems for research mathematics. Earlier versions of the rank, bounded-overlap, and biased-threshold arguments were developed in September 2026 with Claude (Anthropic). In October 2026, OpenAI's GPT-6 Astra Pro, working in ChatGPT with collaborating agents, was used to extend the results, improve the constants, reconstruct and check the proofs, search the literature, carry out finite computations, and prepare the manuscript. Separate agents reviewed the rank, bounded-overlap, biased-threshold, joint-witness, selector, and rare-activation arguments. Claude Opus 5.5 (Anthropic) audited the final manuscript, including the proofs, the numerical constants and the finite computations. These checks are not peer review. The author directed the work and is responsible for the content of the paper and for decisions concerning its dissemination.
 \par
 \end{samepage}
 

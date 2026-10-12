@@ -2,7 +2,7 @@
 
 Yitzchak Shmalo
 
-[Paper (PDF)](paper/main.pdf) · [LaTeX source](paper/main.tex) · [Research status](RESEARCH_STATUS.md) · [Declarations](DECLARATIONS.md)
+[Paper (PDF)](paper/main.pdf) · [LaTeX source](paper/main.tex) · [Declarations](DECLARATIONS.md)
 
 The paper proves the Fourier entropy–influence inequality for every linear threshold function, with arbitrary real weights and arbitrary threshold. It also treats regular Boolean functions, Boolean combinations of halfspaces, unions with bounded variable overlap, symmetric threshold formulas under product measures, selectors with separated leaf Fourier supports, and orthogonal multiplexers whose branches share data variables.
 
@@ -38,14 +38,6 @@ $$D(f)=\sum_i\min\{I_i(f),1-I_i(f)\}=\min_U I(\chi_U f).$$
 
 The unrestricted FEI conjecture and product-biased FEI+ for arbitrary weighted thresholds remain open in this paper. The two-cell selector and rare-activation reductions preserve the optimal universal FEI constant; they identify the remaining difficulty and are not a proof of its finiteness.
 
-## Revision of 11 October 2026
-
-The strengthened edition retains the original threshold, bounded-overlap, and biased-composition results. It improves the regular-function coefficient from $13.415$ to below $8.937$ by retaining exact Sperner densities, using a harmonic-number estimate, and choosing an Euler-product spectral reference. It also sharpens the spectral-level entropy constant from $3$ to $\log_2(4+e)$ and improves the Boolean-combination constants.
-
-The continuation completes the joint queue-witness estimate, checks addressing within that construction, adds the selector identities and closure results, and proves exact constant-preserving reductions for arbitrary selectors and sparse activation. The communication interpretation and earlier low-influence reductions are credited to the existing literature.
-
-After recovery of the interrupted draft, the shared-data collision identity and orthogonal multiplexer closure were independently checked and incorporated with the improved regular-leaf constant $C_{\rm reg}<8.937$. The main regular-function proof, the biased symmetric-threshold proof and the composition identities were also re-audited; no gap was found in those arguments. These checks are not external peer review.
-
 ## Contents and reproduction
 
 The source includes the references, acknowledgements and funding, competing interests, AI declaration, and data availability statement. The same declarations are provided separately in [DECLARATIONS.md](DECLARATIONS.md).
@@ -76,7 +68,6 @@ pdflatex main.tex
 ## Related paper
 
 [Entropy and singularity of spectral and pivotal sets in planar percolation](https://github.com/yspennstate/percolation-crossing-entropy) treats percolation crossings by spatial refinement and arm estimates. It is cited as a complementary geometric case of FEI.
-
 
 ## Citation
 
